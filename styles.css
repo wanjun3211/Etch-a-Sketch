@@ -6,14 +6,25 @@ body {
     padding: 15px;
 }
 
+.container {
+
+    height: 400px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
 
 .row {
     display: flex;
+    flex: 1 1 auto;
+    
 }
 
 .grid {
     border: 1px solid rgb(0, 200, 255);
-    height: 20px;
-    width: 20px;
+    /* height: 10px;
+    width: 10px; */
     background-color: blanchedalmond;
+    flex: 1 1 auto
 }
