@@ -4,12 +4,15 @@ body {
     align-items: center;
     min-height: 100vh;
     padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .container {
 
-    height: 400px;
-    width: 400px;
+    height: 500px;
+    width: 500px;
     display: flex;
     flex-direction: column;
 }
