@@ -7,42 +7,43 @@ let numberOfGrid = 16;
 
 createGrid(numberOfGrid);
 
+const button = document.querySelector(".button");
+button.addEventListener("click", reRegenreateGrid);
 
 function createGrid(gridNumber) {
     for (let i = 0; i < gridNumber; i++) {
-    // create sigle div for each row
-    const row = document.createElement("div");
-    row.classList.toggle("row");
-    container.appendChild(row);
+        // create sigle div for each row
+        const row = document.createElement("div");
+        row.classList.toggle("row");
+        container.appendChild(row);
 
-    // create 16 grids for each row 
-    for (let i = 0; i < gridNumber; i++) {
-        const grid = document.createElement("div");
-        grid.classList.toggle("grid");
-        row.appendChild(grid);
+        // create 16 grids for each row 
+        for (let i = 0; i < gridNumber; i++) {
+            const grid = document.createElement("div");
+            grid.classList.toggle("grid");
+            row.appendChild(grid);
+        }
     }
+
+    // left trails when mouse hover and leave the grid 
+    const all_grids = document.querySelectorAll(".grid");
+    const onMouseOver = (e) => {
+        console.log(e.target);
+        e.target.style["background-color"] = "black";
+    }
+    const onMouseOut = (e) =>
+        e.target.style["background-color"] = "black";
+
+    all_grids.forEach((grid) => {
+        grid.addEventListener("mouseover", onMouseOver);
+        grid.addEventListener("mouseout", onMouseOut);
+    });
+
 }
 
-// left trails when mouse hover and leave the grid 
-const all_grids = document.querySelectorAll(".grid");
-const onMouseOver = (e) => {
-    console.log(e.target);
-    e.target.style["background-color"] = "black";
-}
-const onMouseOut = (e) =>
-    e.target.style["background-color"] = "black";
 
-all_grids.forEach((grid) => {
-    grid.addEventListener("mouseover", onMouseOver);
-    grid.addEventListener("mouseout", onMouseOut);
-});
-
-}
-
-
-
-
-function enterNumberOfGrid() {
+function reRegenreateGrid() {
+    // User input should be less than 100
     let inputNotCorrect = true;
     while (inputNotCorrect) {
         const userInput = +prompt("Please enter the number of grid on one side", "");
@@ -58,43 +59,8 @@ function enterNumberOfGrid() {
     container.classList.toggle("container");
     body.appendChild(container);
 
-
-
-    for (let i = 0; i < numberOfGrid; i++) {
-        // create sigle div for each row
-        const row = document.createElement("div");
-        row.classList.toggle("row");
-        container.appendChild(row);
-
-        // create corresponding grids for each row 
-        for (let i = 0; i < numberOfGrid; i++) {
-            const grid = document.createElement("div");
-            grid.classList.toggle("grid");
-            row.appendChild(grid);
-        }
-    }
-
-
-    const all_grids = document.querySelectorAll(".grid");
-    const onMouseOver = (e) => {
-        console.log(e.target);
-        e.target.style["background-color"] = "black";
-    }
-    const onMouseOut = (e) =>
-        e.target.style["background-color"] = "black";
-
-    all_grids.forEach((grid) => {
-        grid.addEventListener("mouseover", onMouseOver);
-        grid.addEventListener("mouseout", onMouseOut);
-    });
-
-
-
+    createGrid(numberOfGrid);
 }
 
-const button = document.querySelector(".button");
-button.addEventListener("click", enterNumberOfGrid);
-
-console.log(numberOfGrid);
 
 
